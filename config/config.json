@@ -1,18 +1,18 @@
 {
-  "CONTRACT_ADDRESS": "0x47ab7cd7A8df3b816F6994c4093b416c5BD881F6",
-  "SCAN_LINK": "https://polygonscan.com/token/0x47ab7cd7A8df3b816F6994c4093b416c5BD881F6",
+  "CONTRACT_ADDRESS": "0x2517687804418207eafb4755a911bfba978824c6",
+  "SCAN_LINK": "https://polygonscan.com/token/0x2517687804418207eafb4755a911bfba978824c6",
   "NETWORK": {
     "NAME": "Polygon",
     "SYMBOL": "Matic",
     "ID": 137
   },
-  "NFT_NAME": "Bored Octopus Club",
-  "SYMBOL": "BOCL",
-  "MAX_SUPPLY": 8500,
+  "NFT_NAME": "The Secret Island",
+  "SYMBOL": "TSI",
+  "MAX_SUPPLY": 987,
   "WEI_COST": 2000000000000000000,
   "DISPLAY_COST": 2,
   "GAS_LIMIT": 285000,
   "MARKETPLACE": "Opeansea",
-  "MARKETPLACE_LINK": "https://opensea.io/collection/bored-octopus-club",
+  "MARKETPLACE_LINK": "https://opensea.io/collection/the-secret-island",
   "SHOW_BACKGROUND": true
 }
