@@ -1,2 +1,1 @@
-# secretisland.github.io
-secret island
+# boredocto.github.io
