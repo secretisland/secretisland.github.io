@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="mystyle.css">
+    <title>Purrcat Staking dApp</title>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+</head>
+
+
+<body>
+    <div class="pic">
+        <a href="https://purrcat.art">
+            <img src="./logo.png">
+        </a>
+    </div>
+
+    <div class="headcolumn">
+        <div class="headcard">
+            <h3>Welcome to Purrcat Lover Staking App</h3>
+            <p>Stake your Purrcat Lover NFT and Earn 10 $PURR every 12 hours for each Purrcat Lover NFT staked!</p>
+        </div>
+    </div>
+
+    <div class="column">
+        <div class="card">
+            <h3>Connect/Disconnect Wallet</h3>
+            <button class="connect">Connect Wallet</button>
+            <button class="disconnect">Disconnect Wallet</button>
+            <div id="walletHeight">
+                <p>Wallet Address: <br> <span class="showAccount"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="column">
+            <div class="card">
+                <h3>Approve Contract</h3>
+                <p id="test">This only needs to be done once!</p>
+                <div id="appbtn">
+                    <button class="approve-contract" id="approved">Approve $PURR Contract</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="column">
+            <div class="card">
+                <h3>Stake Your NFTs</h3>
+                <button class="stakeBatch">Stake All</button>
+                <button class="stakeSelected">Stake Selected</button>
+                <div class="visible-scrollbar">
+                    <p>Your unStaked NFTs</p>
+                    <div id="visible-scrollbar">
+                        <span class="nfts"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="column">
+            <div class="card">
+                <h3>Unstake your NFTs</h3>
+                <button class="unStakeBatch">Unstake All</button>
+                <button class="unStakeSelected">Unstake Selected</button>
+                <p>Your Staked NFTs</p>
+                <div id="visible-scrollbar">
+                    <span class="staked"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card">
+                <h3>Contract Stats</h3>
+                <div id="wally">
+                    <p>Wallets Staking: <span class="stakedWallets"></span></p>
+                    <p>Total Purrcat Lover NFTs Staked: <span class="totalMTSstaked"></span></p>
+                    <div id="contractLink">
+                        <a href="https://polygonscan.com/token/0xfbb3c8478403b53a2c5b611f3734ec11d3539aed">
+                            <p>PURRCAT Coin Polygonscan Link</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="column">
+            <div class="card">
+                <h3>Account Balance</h3>
+                <p>$PURR Balance: <span class="balance"></span></p>
+                <p>Unclaimed $PURR Balance: <span class="unbalance"></span></p>
+                <button class="claimTokens">Claim $PURR</button>
+                <button class="calculateTokens">Calculate unclaimed $PURR</button>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="footer">
+
+    </div>
+    <script src="./main.js"></script>
+</body>
+
+</html>
