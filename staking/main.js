@@ -127,7 +127,7 @@ async function getMts() {
 async function getTotalWallets() {
     const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
     const account = accounts[0];
-    totalWallet = await purrContract.methods.amountOfStakers().call();
+    totalWallet = await unitestContract.methods.amountOfStakers().call();
     totalWallets.innerHTML = totalWallet;
 }
 
@@ -136,7 +136,7 @@ getTotalWallets();
 async function getTotalMTSstaked() {
     const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
     const account = accounts[0];
-    totalMTSstake = await purrContract.methods.tokensStaked().call();
+    totalMTSstake = await unitestContract.methods.tokensStaked().call();
     totalMTSstaked.innerHTML = totalMTSstake;
 }
 
@@ -152,11 +152,11 @@ async function approveMtsContract() {
 }
 
 //stakes all tokens
-async function stakePurrBatch() {
+async function stakeUnitestBatch() {
     let baseFee = String(33000000000);
     const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
     const account = accounts[0];
-    await purrContract.methods.stakeBatch(Nfts).send({ from: account, maxFeePerGas: baseFee, maxPriorityFeePerGas: baseFee })
+    await unitestContract.methods.stakeBatch(Nfts).send({ from: account, maxFeePerGas: baseFee, maxPriorityFeePerGas: baseFee })
 }
 
 //reloads the page and disconnects wallet
@@ -165,19 +165,19 @@ async function logout() {
 }
 
 //unstakes all tokens
-async function unStakePurrBatch() {
+async function unStakeUnitestBatch() {
     let baseFee = String(33000000000);
     const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
     const account = accounts[0];
-    stakedNfts = await purrContract.methods.stakedNFTSByUser(account).call();
-    await purrContract.methods.unstakeBatch(stakedNfts).send({ from: account, maxFeePerGas: baseFee, maxPriorityFeePerGas: baseFee })
+    stakedNfts = await unitestContract.methods.stakedNFTSByUser(account).call();
+    await unitestContract.methods.unstakeBatch(stakedNfts).send({ from: account, maxFeePerGas: baseFee, maxPriorityFeePerGas: baseFee })
 }
 //call contract and claims tokens
 async function claimAllTokens() {
     let baseFee = String(33000000000);
     const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
     const account = accounts[0];
-    await purrContract.methods.harvestBatch(account).send({ from: account, maxFeePerGas: baseFee, maxPriorityFeePerGas: baseFee })
+    await unitestContract.methods.harvestBatch(account).send({ from: account, maxFeePerGas: baseFee, maxPriorityFeePerGas: baseFee })
 }
 
 async function stakeSelectedNfts() {
@@ -185,8 +185,8 @@ async function stakeSelectedNfts() {
     selectedNft = document.querySelector('.t.selected')
     const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
     const account = accounts[0];
-    // await purrContract.methods.stake.estimateGas
-    await purrContract.methods.stake(selectedNft.innerHTML).send({ from: account, maxFeePerGas: baseFee, maxPriorityFeePerGas: baseFee })
+    // await unitestContract.methods.stake.estimateGas
+    await unitestContract.methods.stake(selectedNft.innerHTML).send({ from: account, maxFeePerGas: baseFee, maxPriorityFeePerGas: baseFee })
 }
 
 async function unStakeSelectedNfts() {
@@ -194,7 +194,7 @@ async function unStakeSelectedNfts() {
     selectedNft = document.querySelector('.t.selected')
     const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
     const account = accounts[0];
-    await purrContract.methods.unstake(selectedNft.innerHTML).send({ from: account, maxFeePerGas: baseFee, maxPriorityFeePerGas: baseFee })
+    await unitestContract.methods.unstake(selectedNft.innerHTML).send({ from: account, maxFeePerGas: baseFee, maxPriorityFeePerGas: baseFee })
 }
 
 
@@ -208,13 +208,13 @@ async function calculateBalance() {
     if (unbalance.innerHTML.length == 0) {
 
         for (let x of combList) {
-            nftBal = await purrContract.methods.pendingRewards(account, x).call();
+            nftBal = await unitestContract.methods.pendingRewards(account, x).call();
             int = parseInt(nftBal);
             calcBal += int;
         }
 
         calc.classList.remove("button--loading");
-        //Displays the unclaimed amount of $PURR
+        //Displays the unclaimed amount of $UNITEST
         calcBal = (Math.round(calcBal / 1000000000000000000));
         unbalance.innerHTML = calcBal;
 
@@ -232,11 +232,11 @@ approveButton.addEventListener('click', () => {
 });
 
 stakeBatchButton.addEventListener('click', () => {
-    stakePurrBatch();
+    stakeUnitestBatch();
 });
 
 unStakeBatchButton.addEventListener('click', () => {
-    unStakePurrBatch();
+    unStakeUnitestBatch();
 });
 
 ethereumButton.addEventListener('click', () => {
